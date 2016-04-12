@@ -1,4 +1,4 @@
---[[ Addon Settings Configuration ]]
+--[[ Global Properties ]]
 
 ENABLE_HERO_RESPAWN = true
 UNIVESRAL_SHOP_MODE = false
