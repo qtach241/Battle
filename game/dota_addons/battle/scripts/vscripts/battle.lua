@@ -7,3 +7,13 @@ DEBUG_MODE = true
 if Battle == nil then
   _G.Battle = class({})
 end
+
+--[[ Load Libraries ]]
+
+--[[ Load Internals ]]
+--require('internal/battle')
+--require('internal/events')
+
+--[[ Load Settings and Event Handlers ]]
+--require('settings')
+--require('events')
