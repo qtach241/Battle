@@ -3,7 +3,7 @@
 print('\n***Begin Loading LUA Script***\n')
 
 require('internal/util')
-require('gamemode')
+require('battle')
 
 --[[
 Reserved function invoked by Dota 2 engine. The Precache function will load all 
