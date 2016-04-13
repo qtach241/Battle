@@ -1,8 +1,8 @@
 --[[ Utils for Debugging ]]
 
-function DebugPrint(s)
+function DebugPrint(...)
   if DEBUG_MODE then
-    print('[DEBUG] ' .. s)
+    print(debug.getinfo(2, "n").name .. '[' .. debug.getinfo(2).currentline .. ']: ' .. ...)
   end
 end
 
