@@ -68,10 +68,15 @@ function Battle:_InitGameMode()
       SetTeamCustomHealthbarColor(team, color[1], color[2], color[3])
     end
   end
-  DebugPrint('GameRules set')
+  DebugPrint('Game Rules set')
 
   --[[ Event Hooks ]]
   ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(Battle, 'OnPlayerLevelUp'), self)
   ListenToGameEvent('dota_ability_channel_finished', Dynamic_Wrap(Battle, 'OnAbilityChannelFinished'), self)
   
+  DebugPrint('Event Hooks set')
+  
+  Battle._reentrantCheck = true
+  Battle:InitGameMode()
+  GameMode._reentrantCheck = false
 end

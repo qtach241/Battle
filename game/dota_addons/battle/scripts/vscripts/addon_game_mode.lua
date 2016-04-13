@@ -19,6 +19,8 @@ setup the game mode for the first time. It is run when the file is loaded and is
 generally used to setup classes for the game mode to utilize.
 ]]
 function Activate()
+  GameRules.Battle = Battle()
+  GameRules.Battle:_InitGameMode()
   DebugPrint('Activate Success!')
 end
 
