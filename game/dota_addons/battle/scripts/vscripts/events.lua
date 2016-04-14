@@ -12,7 +12,7 @@ function Battle:OnPlayerLevelUp(keys)
 end
 
 --[[
-A channeled ability finished by either completing or being interrupted.
+A channelled ability finished by either completing or being interrupted.
 ]]
 function Battle:OnAbilityChannelFinished(keys)
   DebugPrint('OnAbilityChannelFinished')

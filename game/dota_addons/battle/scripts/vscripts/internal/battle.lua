@@ -84,3 +84,60 @@ function Battle:_InitGameMode()
   Battle:InitGameMode()
   Battle._reentrantCheck = false
 end
+
+--[[ On first parse, set BattleEntity = nil to set up game mode parameters. ]]
+BattleEntity = nil
+
+--[[
+This function is called as the first player loads and sets up the parameters
+of the custom game.
+]]
+function Battle:_CaptureGameMode()
+  if BattleEntity == nil then
+    --[[ Set GameMode parameters ]]
+    BattleEntity = GameRules:GetGameModeEntity()        
+    BattleEntity:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
+    BattleEntity:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
+    BattleEntity:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
+    BattleEntity:SetCustomBuybackCooldownEnabled( CUSTOM_BUYBACK_COOLDOWN_ENABLED )
+    BattleEntity:SetBuybackEnabled( BUYBACK_ENABLED )
+    BattleEntity:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
+    BattleEntity:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
+    BattleEntity:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
+    BattleEntity:SetCustomHeroMaxLevel ( MAX_LEVEL )
+    BattleEntity:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+
+    BattleEntity:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
+    BattleEntity:SetTowerBackdoorProtectionEnabled( ENABLE_TOWER_BACKDOOR_PROTECTION )
+
+    BattleEntity:SetFogOfWarDisabled(DISABLE_FOG_OF_WAR_ENTIRELY)
+    BattleEntity:SetGoldSoundDisabled( DISABLE_GOLD_SOUNDS )
+    BattleEntity:SetRemoveIllusionsOnDeath( REMOVE_ILLUSIONS_ON_DEATH )
+
+    BattleEntity:SetAlwaysShowPlayerInventory( SHOW_ONLY_PLAYER_INVENTORY )
+    BattleEntity:SetAnnouncerDisabled( DISABLE_ANNOUNCER )
+    if FORCE_PICKED_HERO ~= nil then
+      BattleEntity:SetCustomGameForceHero( FORCE_PICKED_HERO )
+    end
+    BattleEntity:SetFixedRespawnTime( FIXED_RESPAWN_TIME ) 
+    BattleEntity:SetFountainConstantManaRegen( FOUNTAIN_CONSTANT_MANA_REGEN )
+    BattleEntity:SetFountainPercentageHealthRegen( FOUNTAIN_PERCENTAGE_HEALTH_REGEN )
+    BattleEntity:SetFountainPercentageManaRegen( FOUNTAIN_PERCENTAGE_MANA_REGEN )
+    BattleEntity:SetLoseGoldOnDeath( LOSE_GOLD_ON_DEATH )
+    BattleEntity:SetMaximumAttackSpeed( MAXIMUM_ATTACK_SPEED )
+    BattleEntity:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
+    BattleEntity:SetStashPurchasingDisabled ( DISABLE_STASH_PURCHASING )
+
+    for rune, spawn in pairs(ENABLED_RUNES) do
+      BattleEntity:SetRuneEnabled(rune, spawn)
+    end
+
+    BattleEntity:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )
+
+    BattleEntity:SetDaynightCycleDisabled( DISABLE_DAY_NIGHT_CYCLE )
+    BattleEntity:SetKillingSpreeAnnouncerDisabled( DISABLE_KILLING_SPREE_ANNOUNCER )
+    BattleEntity:SetStickyItemDisabled( DISABLE_STICKY_ITEM )
+
+    self:OnFirstPlayerLoaded()
+  end 
+end
