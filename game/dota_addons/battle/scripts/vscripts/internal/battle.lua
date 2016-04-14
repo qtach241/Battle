@@ -73,10 +73,14 @@ function Battle:_InitGameMode()
   --[[ Event Hooks ]]
   ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(Battle, 'OnPlayerLevelUp'), self)
   ListenToGameEvent('dota_ability_channel_finished', Dynamic_Wrap(Battle, 'OnAbilityChannelFinished'), self)
+
+  ListenToGameEvent('player_disconnect', Dynamic_Wrap(Battle, 'OnDisconnect'), self)
+  
+  ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(Battle, '_OnGameRulesStateChange'), self)
   
   DebugPrint('Event Hooks set')
   
   Battle._reentrantCheck = true
   Battle:InitGameMode()
-  GameMode._reentrantCheck = false
+  Battle._reentrantCheck = false
 end

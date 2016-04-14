@@ -2,7 +2,15 @@
 
 function DebugPrint(...)
   if DEBUG_MODE then
-    print(debug.getinfo(2, "n").name .. '[' .. debug.getinfo(2).currentline .. ']: ' .. ...)
+    local func = debug.getinfo(2, "n").name
+    local line = debug.getinfo(2, "l").currentline
+    local source = debug.getinfo(2, "S").source
+
+    if func == nil then
+      print('[DEBUG] ' .. source .. '::' .. line .. ':: ' .. ...)
+    else
+      print('[DEBUG] ' .. func .. source .. '::' .. line .. ':: ' .. ...)
+    end
   end
 end
 

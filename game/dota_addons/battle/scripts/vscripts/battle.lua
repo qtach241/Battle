@@ -11,12 +11,12 @@ end
 --[[ Load Libraries ]]
 
 --[[ Load Internals ]]
---require('internal/battle')
---require('internal/events')
+require('internal/battle')
+require('internal/events')
 
 --[[ Load Settings and Event Handlers ]]
---require('settings')
---require('events')
+require('settings')
+require('events')
 
 --[[
 This function should be used to set up Async precache calls at the beginning of 
