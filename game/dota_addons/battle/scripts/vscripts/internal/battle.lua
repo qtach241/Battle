@@ -1,4 +1,4 @@
---[[ Internal Game Script Functions ]]
+--[[ Init ]]
 
 function Battle:_InitGameMode()
   if Battle._reentrantCheck then
@@ -70,13 +70,17 @@ function Battle:_InitGameMode()
   end
   DebugPrint('Game Rules set')
 
-  --[[ Event Hooks ]]
+  --[[ These event hooks route to handler functions directly. ]]
   ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(Battle, 'OnPlayerLevelUp'), self)
   ListenToGameEvent('dota_ability_channel_finished', Dynamic_Wrap(Battle, 'OnAbilityChannelFinished'), self)
 
   ListenToGameEvent('player_disconnect', Dynamic_Wrap(Battle, 'OnDisconnect'), self)
-  
+
+  --[[ These event hooks route to "internal" hander functions first. ]]
   ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(Battle, '_OnGameRulesStateChange'), self)
+  ListenToGameEvent('npc_spawned', Dynamic_Wrap(Battle, '_OnNPCSpawned'), self)
+  ListenToGameEvent('entity_killed', Dynamic_Wrap(Battle, '_OnEntityKilled'), self)
+  ListenToGameEvent('player_connect_full', Dynamic_Wrap(Battle, '_OnConnectFull'), self)
   
   DebugPrint('Event Hooks set')
   

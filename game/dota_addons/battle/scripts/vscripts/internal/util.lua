@@ -9,7 +9,7 @@ function DebugPrint(...)
     if func == nil then
       print('[DEBUG] ' .. source .. '::' .. line .. ':: ' .. ...)
     else
-      print('[DEBUG] ' .. func .. source .. '::' .. line .. ':: ' .. ...)
+      print('[DEBUG] ' .. func .. '::' .. source .. '::' .. line .. ':: ' .. ...)
     end
   end
 end

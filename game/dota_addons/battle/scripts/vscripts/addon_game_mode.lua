@@ -10,7 +10,7 @@ Reserved function invoked by Dota 2 engine. The Precache function will load all
 required assets in advance of them being required by the game.
 ]]
 function Precache(context)
-  print('Precache Success!')
+  print('\nPrecache Success!\n')
 end
 
 --[[
@@ -21,7 +21,7 @@ generally used to setup classes for the game mode to utilize.
 function Activate()
   GameRules.Battle = Battle()
   GameRules.Battle:_InitGameMode()
-  print('Activate Success!')
+  print('\nActivate Success!\n')
 end
 
 print('\n***Finished Loading LUA Script***\n')
