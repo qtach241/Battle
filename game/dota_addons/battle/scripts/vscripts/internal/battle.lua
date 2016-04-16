@@ -10,6 +10,14 @@ function Battle:_InitGameMode()
     return
   end
 
+  local spew = 0
+  if DEBUG_MODE then
+    spew = 1
+  end
+
+  Convars:RegisterConvar('debug_mode', tostring(spew), 
+    'Set to 1 to start spewing debug info. Set to 0 to disable.', 0)
+
   --[[ Setup Rules ]]
   GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )
   GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )

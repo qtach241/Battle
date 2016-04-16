@@ -1,7 +1,12 @@
 --[[ Utils for Debugging ]]
 
 function DebugPrint(...)
-  if DEBUG_MODE then
+  local spew = Convars:GetInt('debug_mode') or -1
+  if spew == -1 and DEBUG_MODE then
+    spew = 1
+  end
+
+  if spew == 1 then
     local func = debug.getinfo(2, "n").name
     local line = debug.getinfo(2, "l").currentline
     local source = debug.getinfo(2, "S").source
@@ -15,7 +20,12 @@ function DebugPrint(...)
 end
 
 function DebugPrintTable(...)
-  if DEBUG_MODE then
+  local spew = Convars:GetInt('debug_mode') or -1
+  if spew == -1 and DEBUG_MODE then
+    spew = 1
+  end
+
+  if spew == 1 then
     PrintTable(...)
   end
 end
