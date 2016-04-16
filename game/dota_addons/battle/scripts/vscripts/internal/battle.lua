@@ -26,10 +26,8 @@ function Battle:_InitGameMode()
   GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
   GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
   GameRules:SetRuneMinimapIconScale( MINIMAP_RUNE_ICON_SIZE )
-
   GameRules:SetFirstBloodActive( ENABLE_FIRST_BLOOD )
   GameRules:SetHideKillMessageHeaders( HIDE_KILL_BANNERS )
-
   GameRules:SetCustomGameEndDelay( GAME_END_DELAY )
   GameRules:SetCustomVictoryMessageDuration( VICTORY_MESSAGE_DURATION )
   GameRules:SetStartingGold( STARTING_GOLD )
@@ -73,21 +71,42 @@ function Battle:_InitGameMode()
       SetTeamCustomHealthbarColor(team, color[1], color[2], color[3])
     end
   end
-  DebugPrint('Game Rules set')
+  DebugPrint('Game Rules set!')
 
   --[[ These event hooks route to handler functions directly. ]]
   ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(Battle, 'OnPlayerLevelUp'), self)
   ListenToGameEvent('dota_ability_channel_finished', Dynamic_Wrap(Battle, 'OnAbilityChannelFinished'), self)
-
+  ListenToGameEvent('dota_player_learned_ability', Dynamic_Wrap(Battle, 'OnPlayerLearnedAbility'), self)
   ListenToGameEvent('player_disconnect', Dynamic_Wrap(Battle, 'OnDisconnect'), self)
+  ListenToGameEvent('dota_item_purchased', Dynamic_Wrap(Battle, 'OnItemPurchased'), self)
+  ListenToGameEvent('dota_item_picked_up', Dynamic_Wrap(Battle, 'OnItemPickedUp'), self)
+  ListenToGameEvent('last_hit', Dynamic_Wrap(Battle, 'OnLastHit'), self)
+  ListenToGameEvent('dota_non_player_used_ability', Dynamic_Wrap(Battle, 'OnNonPlayerUsedAbility'), self)
+  ListenToGameEvent('player_changename', Dynamic_Wrap(Battle, 'OnPlayerChangedName'), self)
+  ListenToGameEvent('dota_rune_activated_server', Dynamic_Wrap(Battle, 'OnRuneActivated'), self)
+  ListenToGameEvent('dota_player_take_tower_damage', Dynamic_Wrap(Battle, 'OnPlayerTakeTowerDamage'), self)
+  ListenToGameEvent('tree_cut', Dynamic_Wrap(Battle, 'OnTreeCut'), self)
+  ListenToGameEvent('entity_hurt', Dynamic_Wrap(Battle, 'OnEntityHurt'), self)
+  ListenToGameEvent('player_connect', Dynamic_Wrap(Battle, 'PlayerConnect'), self)
+  ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(Battle, 'OnAbilityUsed'), self)
+  ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(Battle, 'OnPlayerPickHero'), self)
+  ListenToGameEvent('dota_team_kill_credit', Dynamic_Wrap(Battle, 'OnTeamKillCredit'), self)
+  ListenToGameEvent("player_reconnected", Dynamic_Wrap(Battle, 'OnPlayerReconnect'), self)
+  ListenToGameEvent("dota_illusions_created", Dynamic_Wrap(Battle, 'OnIllusionsCreated'), self)
+  ListenToGameEvent("dota_item_combined", Dynamic_Wrap(Battle, 'OnItemCombined'), self)
+  ListenToGameEvent("dota_player_begin_cast", Dynamic_Wrap(Battle, 'OnAbilityCastBegins'), self)
+  ListenToGameEvent("dota_tower_kill", Dynamic_Wrap(Battle, 'OnTowerKill'), self)
+  ListenToGameEvent("dota_player_selected_custom_team", Dynamic_Wrap(Battle, 'OnPlayerSelectedCustomTeam'), self)
+  ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(Battle, 'OnNPCGoalReached'), self)
+  ListenToGameEvent("player_chat", Dynamic_Wrap(Battle, 'OnPlayerChat'), self)
 
-  --[[ These event hooks route to "internal" hander functions first. ]]
+  --[[ These event hooks route to an "internal" handler function first. ]]
   ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(Battle, '_OnGameRulesStateChange'), self)
   ListenToGameEvent('npc_spawned', Dynamic_Wrap(Battle, '_OnNPCSpawned'), self)
   ListenToGameEvent('entity_killed', Dynamic_Wrap(Battle, '_OnEntityKilled'), self)
   ListenToGameEvent('player_connect_full', Dynamic_Wrap(Battle, '_OnConnectFull'), self)
   
-  DebugPrint('Event Hooks set')
+  DebugPrint('Event Hooks set!')
   
   Battle._reentrantCheck = true
   Battle:InitGameMode()
