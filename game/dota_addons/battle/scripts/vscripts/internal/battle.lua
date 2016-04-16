@@ -1,4 +1,9 @@
---[[ Init ]]
+--[[
+Initialize the Game Rules. Note that both _InitGameMode and _CaptureGameMode
+set certain game parameters according to properties defined in settings.lua.
+_InitGameMode sets parameters at Activate() time whereas _CaptureGameMode 
+sets parameters when a player fully connects.
+]]
 
 function Battle:_InitGameMode()
   if Battle._reentrantCheck then

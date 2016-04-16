@@ -17,6 +17,8 @@ end
 Reserved function invoked by Dota 2 engine. The Activate function is used to 
 setup the game mode for the first time. It is run when the file is loaded and is 
 generally used to setup classes for the game mode to utilize.
+
+Think of this as the "main" function.
 ]]
 function Activate()
   GameRules.Battle = Battle()
