@@ -1,0 +1,43 @@
+Steps in case I forget later.
+
+1. Download Dota 2 Workshop Tools from Steam
+
+
+2. Clone the repo
+
+git clone https://github.com/qtach241/battle.git
+
+	
+3. To install the addon, its as simple as copying both the "content" and "game" files from the local repo to the "dota 2 beta" folder on the C drive or wherever. However, this creates a new copy and separates the files from version control. Instead, create a linked folder that points to the local repo.
+
+The windows command line syntax is:
+
+mklink /j "name" "source"
+
+For example, my local repo is located in D:\Git\Battle
+
+To create the proper links, I would open the command line at C:\Program Files\Steam\steamapps\common\dota 2 beta\content\dota_addons
+
+and run: mklink /j "battle" "D:\Git\Battle\content\dota_addons\battle"
+
+Likewise, open the command line at C:\Program Files\Steam\steamapps\common\dota 2 beta\game\dota_addons
+
+and run: mklink /j "battle" "D:\Git\Battle\game\dota_addons\battle"
+
+
+4. Download Sublime Text 3 and follow the instructions to install Package Control here: https://packagecontrol.io/installation
+
+Open Sublime Text 3 command pallet (CTRL+SHIFT+P) and type "Install Package" and press enter.
+
+Type "Dota KV" and press enter, restart the program.
+
+Open command pallet (CTRL+SHIFT+P) and type Dota KV, and press enter to use the Dota KV custom syntax.
+
+
+5. To build the map, launch Dota 2 Workshop Tools. If the links were created properly in step 3, the addon "battle" should appear on the list. Launching the battle addon displays the asset browser. From the asset browser, launch the hammer editor from the upper left. From the hammer editor, go to File->Open and select battle.vmap. Press F9 to build, it should automatically launch in Dota 2.
+
+
+6. Runtime debugging: In-game, launch VConsole (tilde key for most people), type debug_mode 1. 
+
+
+
