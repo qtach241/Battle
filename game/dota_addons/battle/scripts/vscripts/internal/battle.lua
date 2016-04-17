@@ -11,12 +11,18 @@ function Battle:_InitGameMode()
   end
 
   local spew = 0
+  local verbose = 0
   if DEBUG_MODE then
     spew = 1
+    if DEBUG_VERBOSE then
+      verbose = 1
+    end
   end
 
   Convars:RegisterConvar('debug_mode', tostring(spew), 
     'Set to 1 to start spewing debug info. Set to 0 to disable.', 0)
+  Convars:RegisterConvar('debug_verbose', tostring(verbose),
+    'Set to 1 for verbose debug info. Set to 0 for basic debug info.', 0)
 
   --[[ Setup Rules ]]
   GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )

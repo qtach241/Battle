@@ -2,31 +2,50 @@
 
 function DebugPrint(...)
   local spew = Convars:GetInt('debug_mode') or -1
+  local verbose = Convars:GetInt('debug_verbose') or -1
+  
   if spew == -1 and DEBUG_MODE then
     spew = 1
   end
+  if verbose == -1 and DEBUG_VERBOSE then
+    verbose = 1
+  end
 
   if spew == 1 then
-    local func = debug.getinfo(2, "n").name
-    local line = debug.getinfo(2, "l").currentline
-    local source = debug.getinfo(2, "S").source
+    if verbose == 1 then
+      local func = debug.getinfo(2, "n").name
+      local line = debug.getinfo(2, "l").currentline
+      local source = debug.getinfo(2, "S").source
 
-    if func == nil then
-      print('[DEBUG] ' .. source .. '::' .. line .. ':: ' .. ...)
+      if func == nil then
+        print('[DEBUG] ' .. source .. '::' .. line .. ':: ' .. ...)
+      else
+        print('[DEBUG] ' .. func .. '::' .. source .. '::' .. line .. ':: ' .. ...)
+      end
+
     else
-      print('[DEBUG] ' .. func .. '::' .. source .. '::' .. line .. ':: ' .. ...)
+      print('[DEBUG] ' .. ...)
     end
   end
 end
 
 function DebugPrintTable(...)
   local spew = Convars:GetInt('debug_mode') or -1
+  local verbose = Convars:GetInt('debug_verbose') or -1
+
   if spew == -1 and DEBUG_MODE then
     spew = 1
   end
+  if verbose == -1 and DEBUG_VERBOSE then
+    verbose = 1
+  end
 
   if spew == 1 then
-    PrintTable(...)
+    if verbose == 1 then
+      DeepPrintTable(...)
+    else
+      PrintTable(...)
+    end
   end
 end
 
