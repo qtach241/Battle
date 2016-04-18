@@ -1,0 +1,211 @@
+"DOTAAbilities"
+{
+    "Version"                                    "1"
+    
+    "rifle_shot"
+    {
+    	// General
+        "BaseClass"                              "ability_datadriven"
+        "AbilityBehavior"                        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"                     "sniper_assassinate"
+        "AbilityUnitTargetTeam"                  "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"                  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"                 "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"                  "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityType"                            "DOTA_ABILITY_TYPE_BASIC"
+        "MaxLevel"                               "4"
+        "RequiredLevel"                          "-4"
+        "LevelsBetweenUpgrades"                  "1"
+
+        "AbilityCastPoint"                       "0.0"
+        "AbilityCastAnimation"                   "ACT_DOTA_ATTACK"
+        "AnimationPlaybackRate"                  "1"
+        "AnimationIgnoresModelScale"             "1"
+
+        // Stats
+        "AbilityDamage"                          "500 600 700 800"
+        "AbilityManaCost"                        "50 100 150 200"
+        "AbilityCooldown"                        "10.0 12.0 14.0 16.0"
+        "AbilityCastRange"                       "1200"
+        "AbilityCastRangeBuffer"                 "250"
+        "AbilityChannelTime"                     "0.0 0.0 0.0 0.0"
+        "AbilityChannelledManaCostPerSecond"     "30 35 40 45"
+        "AbilityDuration"                        "0.0 0.0 0.0 0.0"
+        "AoERadius"                              "250"
+
+        "OnSpellStart"
+        {
+            "Damage"
+            {
+                "Target"		"TARGET"
+                "Type"			"DAMAGE_TYPE_MAGICAL"
+                "Damage"		"%AbilityDamage"
+            }
+        }
+    }
+
+    "acid_bomb"
+    {
+        "BaseClass"                              "ability_datadriven"
+        "AbilityTextureName"                     "lina_laguna_blade"
+        "MaxLevel"                               "3"
+
+        "AbilityBehavior"                        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetTeam"                  "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"                  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"                  "DAMAGE_TYPE_MAGICAL"
+        "AbilityCastAnimation"                   "ACT_DOTA_ALCHEMIST_CONCOCTION_THROW"
+	
+        "AbilityCastRange"                       "700"
+        "AbilityCastPoint"                       "0.3"
+        "AbilityCooldown"                        "12.0"
+
+        "AbilityManaCost"                        "75"
+	
+        "AOERadius"                              "%radius"
+	
+        "precache"
+        {
+            "particle" 	"particles/units/heroes/hero_witchdoctor/witchdoctor_cask.vpcf"
+            "particle"  "particles/units/heroes/hero_witchdoctor/witchdoctor_cask_explosion_flash.vpcf"
+            "particle"	"particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
+            "particle"	"particles/status_fx/status_effect_maledict.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"            "FIELD_INTEGER"
+                "armor_reduction"     "-3 -4 -5"
+            }
+            "02"
+            {
+                "var_type"            "FIELD_INTEGER"
+                "duration"            "15"
+            }
+            "03"
+            {
+                "var_type"            "FIELD_INTEGER"
+                "damage_per_second"   "5 10 15"
+            }
+            "04"
+            {
+                "var_type"            "FIELD_INTEGER"
+                "radius"              "200"
+            }
+            "05"
+            {
+                "var_type"            "FIELD_INTEGER"
+                "projectile_speed"    "900"
+            }
+        }
+
+        "OnSpellStart"
+        {
+            "TrackingProjectile"
+            {
+                "Target"              "TARGET"
+                "EffectName"          "particles/units/heroes/hero_witchdoctor/witchdoctor_cask.vpcf"
+                "Dodgeable"           "1"
+                "ProvidesVision"      "0"
+                "MoveSpeed"           "%projectile_speed"
+                "SourceAttachment"    "DOTA_PROJECTILE_ATTACHMENT_ATTACK_3"
+            }
+
+            "FireSound"
+            {
+                "EffectName"          "Hero_Alchemist.UnstableConcoction.Throw"
+                "Target"              "TARGET"
+            }		
+        }
+
+        "OnProjectileHitUnit"
+        {
+            "DeleteOnHit"             "1"
+
+            "FireEffect"
+            {
+                "EffectName"          "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
+                "EffectAttachType"    "follow_origin"
+                "EffectRadius"        "%radius"
+                "Target"              "TARGET"
+            }
+
+            "FireEffect"
+            {
+                "EffectName"          "particles/units/heroes/hero_witchdoctor/witchdoctor_cask_explosion_flash.vpcf"
+                "EffectAttachType"    "follow_origin"
+                "Target"              "TARGET"
+                "ControlPointEntities"
+                {
+                    "TARGET"          "attach_hitloc"
+                    "TARGET"          "attach_hitloc"
+                    "TARGET"          "attach_hitloc"
+                    "TARGET"          "attach_hitloc"
+                }
+            }
+
+            "FireSound"
+            {
+                "EffectName"          "Hero_Alchemist.UnstableConcoction.Stun"
+                "Target"              "TARGET"
+            }
+			
+            "ApplyModifier"
+            {
+                "ModifierName"        "modifier_acid_bomb"
+                "Target"
+                {
+                    "Center"          "TARGET"
+                    "Radius"          "%radius"
+                    "Teams"           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                }
+                "Duration"            "%duration"
+            }						
+        }
+
+        "Modifiers"
+        {
+            "modifier_acid_bomb"
+            {
+                "IsDebuff"                "1"
+
+                "StatusEffectName"        "particles/status_fx/status_effect_maledict.vpcf"
+                "StatusEffectPriority"    "10"
+
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+                }		
+
+                "ThinkInterval"           "1.0"
+                "OnIntervalThink"
+                {
+                    "Damage"
+                    {
+                        "Target"          "TARGET"
+                        "Type"            "DAMAGE_TYPE_MAGICAL"
+                        "Damage"          "%damage_per_second"
+                    }
+
+                    "FireEffect"
+                    {
+                        "EffectName"        "particles/msg_fx/msg_poison.vpcf"
+                        "EffectAttachType"  "follow_overhead"
+                        "Target"            "TARGET"
+                        "ControlPoints"
+                        {
+                            "01"    "9 %damage_per_second 6"
+                            "02"    "1 3 0"
+                            "03"    "170 0 250"
+                        }					
+                    }									
+                }			
+            }
+        }
+    }
+}
