@@ -54,7 +54,7 @@ Example Usage:
       end
     })
 
-8.  A timer running every second that starts after 2 minutes regardless of pauses:
+8.  Create a timer running every second that starts after 2 minutes regardless of pauses:
 
     Timers:CreateTimer("uniqueTimerString3", {
       useGameTime = false,
@@ -65,7 +65,7 @@ Example Usage:
       end
     })
 
-9.  A timer using the old style to repeat every second starting 5 seconds ahead:
+9.  Create a timer using the old style to repeat every second starting 5 seconds ahead:
 
     Timers:CreateTimer("uniqueTimerString3", {
       useOldStyle = true,
@@ -82,7 +82,7 @@ TIMERS_VERSION = "1.05"
 TIMERS_THINK = 0.01
 
 if Timers == nil then
-  print ( '[Timers] creating Timers' )
+  print('[Timers] creating Timers')
   Timers = {}
   setmetatable(Timers, {
     __call = function(t, ...)
@@ -106,10 +106,10 @@ function Timers:Think()
     --return
   --end
 
-  -- Track game time, since the dt passed in to think is actually wall-clock time not simulation time.
+  --[[ Track game time, since the dt passed in to think is actually wall-clock time not simulation time. ]]
   local now = GameRules:GetGameTime()
 
-  -- Process timers
+  --[[ Process timers. ]]
   for k,v in pairs(Timers.timers) do
     local bUseGameTime = true
     if v.useGameTime ~= nil and v.useGameTime == false then
@@ -128,15 +128,15 @@ function Timers:Think()
     if v.endTime == nil then
       v.endTime = now
     end
-    -- Check if the timer has finished
+    --[[ Check if the timer has finished. ]]
     if now >= v.endTime then
-      -- Remove from timers list
+      --[[ Remove from timers list. ]]
       Timers.timers[k] = nil
 
       Timers.runningTimer = k
       Timers.removeSelf = false
       
-      -- Run the callback
+      --[[ Run the callback. ]]
       local status, nextCall
       if v.context then
         status, nextCall = xpcall(function() return v.callback(v.context, v) end, function (msg)
@@ -150,12 +150,12 @@ function Timers:Think()
 
       Timers.runningTimer = nil
 
-      -- Make sure it worked
+      --[[ Make sure it worked. ]]
       if status then
-        -- Check if it needs to loop
+        --[[ Check if it needs to loop. ]]
         if nextCall and not Timers.removeSelf then
-          -- Change its end time
 
+          --[[ Change its end time. ]]
           if bOldStyle then
             v.endTime = v.endTime + nextCall - now
           else
@@ -165,10 +165,10 @@ function Timers:Think()
           Timers.timers[k] = v
         end
 
-        -- Update timer data
+        --[[ Update timer data. ]]
         --self:UpdateTimerData()
       else
-        -- Nope, handle the error
+        --[[ Nope, handle the error. ]]
         Timers:HandleEventError('Timer', k, nextCall)
       end
     end
@@ -180,18 +180,18 @@ end
 function Timers:HandleEventError(name, event, err)
   print(err)
 
-  -- Ensure we have data
+  --[[ Ensure we have data. ]]
   name = tostring(name or 'unknown')
   event = tostring(event or 'unknown')
   err = tostring(err or 'unknown')
 
-  -- Tell everyone there was an error
+  --[[ Tell everyone there was an error. ]]
   --Say(nil, name .. ' threw an error on event '..event, false)
   --Say(nil, err, false)
 
-  -- Prevent loop arounds
+  --[[ Prevent loop arounds. ]]
   if not self.errorHandled then
-    -- Store that we handled an error
+    --[[ Store that we handled an error. ]]
     self.errorHandled = true
   end
 end
