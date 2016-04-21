@@ -11,7 +11,7 @@ if Battle == nil then
 end
 
 --[[ Load Libraries ]]
-require('timers')
+require('libraries/timers')
 
 --[[ Load Internals ]]
 require('internal/battle')
