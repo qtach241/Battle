@@ -1,0 +1,12 @@
+// Description:
+// Trooper's 2nd ability. Throws a smoke grenade which releases an AoE of smoke
+// similar to Riki's Smoke Bomb. Causes projectiles passing through to miss.
+
+"DOTAAbilities"
+{
+    "trooper_smoke_grenade"
+    {
+        // To be implemented
+
+    }
+}

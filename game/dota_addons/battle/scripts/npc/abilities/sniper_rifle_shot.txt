@@ -1,3 +1,6 @@
+// Description:
+// Sniper's 1st ability. Main damaging ability. Longest range of all weapon abilities. High damage.
+
 "DOTAAbilities"
 {
     "sniper_rifle_shot"

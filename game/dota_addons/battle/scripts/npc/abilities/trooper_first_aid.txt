@@ -1,0 +1,12 @@
+// Description:
+// Trooper's ultimate. Channeling ability that heals allied units during the
+// duration of the channel. Picture bandaging in WoW.
+
+"DOTAAbilities"
+{
+    "trooper_first_aid"
+    {
+        // To be implemented
+
+    }
+}

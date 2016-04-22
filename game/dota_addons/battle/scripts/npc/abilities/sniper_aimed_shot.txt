@@ -1,3 +1,6 @@
+// Description:
+// Sniper's ultimate. Channels for a short time and releases a shot that does massive damage.
+
 "DOTAAbilities"
 {
     "sniper_aimed_shot"

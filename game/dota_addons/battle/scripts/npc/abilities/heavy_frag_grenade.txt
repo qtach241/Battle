@@ -1,0 +1,11 @@
+// Description:
+// Heavy's 2nd ability. Throws a frag grenade, dealing burst of damage in an AoE.
+
+"DOTAAbilities"
+{
+    "heavy_frag_grenade"
+    {
+        // To be implemented
+
+    }
+}

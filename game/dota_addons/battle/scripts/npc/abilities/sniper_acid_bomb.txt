@@ -1,3 +1,6 @@
+// Description:
+// Sniper's 2nd ability. Throws an acid grenade, dealing damge over time and slowing in an AoE.
+
 "DOTAAbilities"
 {
     "sniper_acid_bomb"

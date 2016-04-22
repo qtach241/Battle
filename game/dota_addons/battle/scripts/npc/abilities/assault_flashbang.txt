@@ -1,0 +1,11 @@
+// Description:
+// Assault's 2nd ability. Throws a flashbang grenade, stuns in an AoE.
+
+"DOTAAbilities"
+{
+    "assault_flashbang"
+    {
+        // To be implemented
+
+    }
+}

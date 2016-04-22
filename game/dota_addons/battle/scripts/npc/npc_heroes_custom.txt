@@ -3,6 +3,10 @@
 // to append each hero structure to the "DOTAHeroes" base structure.
 
 #base "heroes/npc_dota_hero_sniper_battle.txt"
-#base "heroes/npc_dota_hero_heavy_battle.txt"
+
+// Not Implemented Yet
+//#base "heroes/npc_dota_hero_heavy_battle.txt"
+//#base "heroes/npc_dota_hero_assault_battle.txt"
+//#base "heroes/npc_dota_hero_trooper_battle.txt"
 
 "DOTAHeroes" {}

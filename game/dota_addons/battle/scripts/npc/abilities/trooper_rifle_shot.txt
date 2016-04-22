@@ -1,0 +1,11 @@
+// Description:
+// Trooper's 1st ability. Moderate damage. Moderate range. Moderate cooldown.
+
+"DOTAAbilities"
+{
+    "trooper_rifle_shot"
+    {
+        // To be implemented
+
+    }
+}

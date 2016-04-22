@@ -1,0 +1,11 @@
+// Description:
+// Assault's 3rd ability. Slides forward, exactly like force staff.
+
+"DOTAAbilities"
+{
+    "assault_power_slide"
+    {
+        // To be implemented
+
+    }
+}

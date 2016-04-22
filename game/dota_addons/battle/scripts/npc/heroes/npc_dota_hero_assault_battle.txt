@@ -1,0 +1,9 @@
+"DOTAHeroes"
+{
+    "npc_dota_hero_assault_battle"
+    {
+        // To be implemented
+    
+    }
+
+}

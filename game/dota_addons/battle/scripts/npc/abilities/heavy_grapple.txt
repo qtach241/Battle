@@ -1,0 +1,13 @@
+// Description:
+// Heavy's 3rd ability. Fires a hook, latching onto friendly allies and some objects.
+// Pulls the heavy towards that unit. Picture Timbersaw's Timber Chain if it worked
+// on heroes too.
+
+"DOTAAbilities"
+{
+    "heavy_grapple"
+    {
+        // To be implemented
+
+    }
+}

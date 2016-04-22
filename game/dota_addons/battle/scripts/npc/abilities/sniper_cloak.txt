@@ -1,3 +1,6 @@
+// Description:
+// Sniper's 3rd ability. Sniper cloaks himself turning invisible for a time, but moves slower.
+
 "DOTAAbilities"
 {
     "sniper_cloak"

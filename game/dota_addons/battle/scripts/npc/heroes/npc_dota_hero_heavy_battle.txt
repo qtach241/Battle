@@ -1,4 +1,6 @@
-"npc_dota_hero_heavy_battle"
+"DOTAHeroes"
+{
+    "npc_dota_hero_heavy_battle"
     {
         // General
         // ----------------------------------------------------------------
@@ -76,3 +78,4 @@
         "VisionNighttimeRange"         "2000"
 
     }
+}

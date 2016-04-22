@@ -1,0 +1,15 @@
+// Description:
+// Assault's ultimate. Brandish a shield in a 180 arc in the current direction.
+// Blocks all projectiles that the shield makes contact with. Drains mana at a
+// constant rate while deployed, and drains even more when projectile hits shield.
+// Some asset work and lua scripting will probably need to be done in addition
+// to the data driven key values.
+
+"DOTAAbilities"
+{
+    "assault_shotgun"
+    {
+        // To be implemented
+
+    }
+}

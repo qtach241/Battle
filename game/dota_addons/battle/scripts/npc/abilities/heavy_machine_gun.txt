@@ -1,0 +1,11 @@
+// Description:
+// Heavy's 1st ability. Does moderate damage. Moderate range. Low cooldown.
+
+"DOTAAbilities"
+{
+    "heavy_machine_gun"
+    {
+        // To be implemented
+
+    }
+}

@@ -1,0 +1,12 @@
+// Description:
+// Heavy's ultimate. Should work kind of like Sven ult. Activate to apply a buff
+// for a time. Details TBD.
+
+"DOTAAbilities"
+{
+    "heavy_rapid_fire"
+    {
+        // To be implemented
+
+    }
+}

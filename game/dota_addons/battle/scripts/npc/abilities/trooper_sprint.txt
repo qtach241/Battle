@@ -1,0 +1,11 @@
+// Description:
+// Trooper's 3rd ability. Increases movement speed for a time like Dark Seer's Surge.
+
+"DOTAAbilities"
+{
+    "trooper_sprint"
+    {
+        // To be implemented
+
+    }
+}

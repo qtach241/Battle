@@ -1,0 +1,12 @@
+// Description:
+// Assault's 1st ability. Does massive damage in a cone. Very limited range.
+// Picture if Beast Master's roar did damage instead of stunning.
+
+"DOTAAbilities"
+{
+    "assault_shotgun"
+    {
+        // To be implemented
+
+    }
+}
