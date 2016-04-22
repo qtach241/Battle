@@ -10,7 +10,7 @@
         // Abilities
         // ----------------------------------------------------------------
         "AbilityLayout"                "4"
-        "Ability1"                     "sniper_rifle_shot"
+        "Ability1"                     "sniper_snipe"
         "Ability2"                     "sniper_acid_bomb"
         "Ability3"                     "sniper_cloak"
         "Ability4"                     "sniper_aimed_shot"
