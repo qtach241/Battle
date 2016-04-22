@@ -1,4 +1,6 @@
-"sniper_rifle_shot"
+"DOTAAbilities"
+{
+    "sniper_rifle_shot"
     {
     	// General
         "BaseClass"                              "ability_datadriven"
@@ -40,3 +42,4 @@
             }
         }
     }
+}

@@ -1,4 +1,6 @@
-"sniper_cloak"
+"DOTAAbilities"
+{
+    "sniper_cloak"
     {
     	// General
         "BaseClass"                              "ability_datadriven"
@@ -40,3 +42,4 @@
             }
         }
     }
+}

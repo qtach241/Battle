@@ -1,4 +1,6 @@
-"sniper_acid_bomb"
+"DOTAAbilities"
+{
+    "sniper_acid_bomb"
     {
         "BaseClass"                              "ability_datadriven"
         "AbilityTextureName"                     "lina_laguna_blade"
@@ -161,3 +163,4 @@
             }
         }
     }
+}
