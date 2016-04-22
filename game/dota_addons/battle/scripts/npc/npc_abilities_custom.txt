@@ -1,3 +1,21 @@
+// This file contains the base element for all custom data driven ability key values.
+// All custom data driven abilities are defined in the abilities/<ability_name> folder.
+// The #base directive is used to append each ability structure to the "DOTAABilities"
+// base structure.
+//
+// To add a new custom data driven ability, create a file in the abilities folder.
+// Follow the naming convention (hero name and ability name separated by underscores as
+// appropriate). Then append the ability structure to this file using the #base directive.
+//
+// Data driven ability wiki page:
+// https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven
+//
+// Noya's data driven ability guide:
+// http://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation
+//
+// Lots of good examples:
+// https://github.com/Pizzalol/SpellLibrary
+
 #base "abilities/sniper_rifle_shot.txt"
 #base "abilities/sniper_acid_bomb.txt"
 #base "abilities/sniper_cloak.txt"

@@ -1,3 +1,7 @@
+// This file contains the base element for all custom hero key values. All custom
+// heroes are defined in the heroes/<hero_name> folder. The #base directive is used 
+// to append each hero structure to the "DOTAHeroes" base structure.
+
 #base "heroes/npc_dota_hero_sniper_battle.txt"
 #base "heroes/npc_dota_hero_heavy_battle.txt"
 
