@@ -1,0 +1,1 @@
+DO NOT use this tool to combine KV files. Use the #base directive instead.
