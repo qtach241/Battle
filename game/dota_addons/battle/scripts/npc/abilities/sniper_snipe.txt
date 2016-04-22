@@ -3,7 +3,7 @@
 
 "DOTAAbilities"
 {
-    "sniper_rifle_shot"
+    "sniper_snipe"
     {
     	// General
         "BaseClass"                              "ability_datadriven"

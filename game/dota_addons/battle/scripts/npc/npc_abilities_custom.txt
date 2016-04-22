@@ -16,7 +16,7 @@
 // Lots of good examples:
 // https://github.com/Pizzalol/SpellLibrary
 
-#base "abilities/sniper_rifle_shot.txt"
+#base "abilities/sniper_snipe.txt"
 #base "abilities/sniper_acid_bomb.txt"
 #base "abilities/sniper_cloak.txt"
 #base "abilities/sniper_aimed_shot.txt"
