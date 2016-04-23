@@ -1,5 +1,6 @@
 // Description:
-// Sniper's 1st ability. Main damaging ability. Longest range of all weapon abilities. High damage.
+// Sniper's 1st ability. Main damaging ability. Longest range of all weapon abilities. High damage and stun.
+// Damage and stun duration scales with distance similar to Mirana arrow.
 
 "DOTAAbilities"
 {
@@ -58,7 +59,7 @@
             "01"
             {
                 "var_type"                  "FIELD_FLOAT"
-                "bullet_speed"              "1200.0"
+                "bullet_speed"              "2000.0"
             }
             "02"
             {
