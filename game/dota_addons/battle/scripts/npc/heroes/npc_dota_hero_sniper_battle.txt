@@ -11,9 +11,9 @@
         // ----------------------------------------------------------------
         "AbilityLayout"                "4"
         "Ability1"                     "sniper_snipe"
-        "Ability2"                     "sniper_acid_bomb"
-        "Ability3"                     "sniper_cloak"
-        "Ability4"                     "sniper_aimed_shot"
+        "Ability2"                     ""
+        "Ability3"                     ""
+        "Ability4"                     ""
         "Ability5"                     ""
         "Ability6"                     ""
         "Ability7"                     ""
@@ -48,6 +48,13 @@
         "AttributeBaseAgility"         "0"
         "AttributeAgilityGain"         "0"
 
+        // Status
+        // ----------------------------------------------------------------
+        "StatusHealth"                 "400"
+        "StatusHealthRegen"            "0.0"
+        "StatusMana"                   "10"
+        "StatusManaRegen"              "0.0"
+
         // Bounty
         // ----------------------------------------------------------------
         "BountyXP"                     "0"
@@ -57,20 +64,13 @@
         // Bounds
         // ----------------------------------------------------------------
         "BoundsHullName"               "DOTA_HULL_SIZE_HERO"
-        "RingRadius"                   "120"
+        "RingRadius"                   "80"
 
         // Movement
         // ----------------------------------------------------------------
         "MovementCapabilities"         "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed"                "350"
         "MovementTurnRate"             "1.0"
-
-        // Status
-        // ----------------------------------------------------------------
-        "StatusHealth"                 "1000"
-        "StatusHealthRegen"            "0.0"
-        "StatusMana"                   "400"
-        "StatusManaRegen"              "100.0"
 
         // Vision
         // ----------------------------------------------------------------
