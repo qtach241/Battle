@@ -34,10 +34,15 @@ Type "Dota KV" and press enter, restart the program.
 Open command pallet (CTRL+SHIFT+P) and type Dota KV, and press enter to use the Dota KV custom syntax.
 
 
-5. To build the map, launch Dota 2 Workshop Tools. If the links were created properly in step 3, the addon "battle" should appear on the list. Launching the battle addon displays the asset browser. From the asset browser, launch the hammer editor from the upper left. From the hammer editor, go to File->Open and select battle.vmap. Press F9 to build, it should automatically launch in Dota 2.
+5. To quickly load the latest version of the map, open VConsole (tild key for most people) and enter:
+
+dota_launch_custom_game battle battle
 
 
-6. Runtime debugging: In-game, launch VConsole (tilde key for most people), type debug_mode 1. 
+6. Runtime debugging: In-game, launch VConsole and enter:
+
+debug_mode 1
+debug_verbose 1
 
 
-
+7. To build the map from scratch, launch Dota 2 Workshop Tools. If the links were created properly in step 3, the addon "battle" should appear on the list. Launching the battle addon displays the asset browser. From the asset browser, launch the hammer editor from the upper left. From the hammer editor, go to File->Open and select battle.vmap. Press F9 to build, it should automatically launch in Dota 2.
