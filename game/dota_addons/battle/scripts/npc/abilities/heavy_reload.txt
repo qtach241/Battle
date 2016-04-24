@@ -1,0 +1,18 @@
+// Description:
+// The Heavy variant of the reload ability. Same core functionality as Sniper's reload.
+// Has a considerably higher channelling time to reflect the increased ammo capacity.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/heavy/machine_gun.lua
+//
+// TODO:
+//
+
+"DOTAAbilities"
+{
+    "heavy_reload"
+    {
+        // To be implemented
+
+    }
+}

@@ -1,5 +1,12 @@
 // Description:
-// Trooper's 1st ability. Moderate damage. Moderate range. Moderate cooldown.
+// Trooper's 1st ability. Fires a point projectile at the targeted location.
+// Moderate damage. Moderate range. Moderate cooldown.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/trooper/rifle_shot.lua
+//
+// TODO:
+//
 
 "DOTAAbilities"
 {

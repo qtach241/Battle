@@ -1,5 +1,13 @@
 // Description:
-// Heavy's 1st ability. Does moderate damage. Moderate range. Low cooldown.
+// Heavy's 1st ability. Does moderate damage. Short to moderate range. Low cooldown.
+// Individual bullets from Machine Gun are visually longer range versions of Gyrocopter's
+// Rocket Barrage.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/heavy/machine_gun.lua
+//
+// TODO:
+//
 
 "DOTAAbilities"
 {

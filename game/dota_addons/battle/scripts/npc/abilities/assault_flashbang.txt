@@ -1,5 +1,13 @@
 // Description:
-// Assault's 2nd ability. Throws a flashbang grenade, stuns in an AoE.
+// Assault's 2nd ability. Throws a flashbang grenade, stunning in an AoE.
+// Visually, this ability looks like Batrider Flame Break, except the stun
+// lasts longer and doesn't knockback.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/assault/flashbang.lua
+//
+// TODO:
+// - Use/design a flashbang grenade to use for projectile model.
 
 "DOTAAbilities"
 {

@@ -1,5 +1,13 @@
 // Description:
-// Assault's 3rd ability. Slides forward, exactly like force staff.
+// Assault's 3rd ability. Moves the hero forward in the current facing direction.
+// Visually, it is exactly like Force Staff, except the hero is allowed to turn
+// during the sliding motion, similar to how Mirana is able to turn during Leap.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/assault/power_slide.lua
+//
+// TODO:
+//
 
 "DOTAAbilities"
 {

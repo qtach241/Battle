@@ -1,5 +1,13 @@
 // Description:
 // Heavy's 2nd ability. Throws a frag grenade, dealing burst of damage in an AoE.
+// This ability is visually similar to when Techie's deploys his Remote Mines and
+// detonating them instantly.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/heavy/frag_grenade.lua
+//
+// TODO:
+//
 
 "DOTAAbilities"
 {

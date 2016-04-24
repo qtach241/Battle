@@ -1,0 +1,21 @@
+// Description:
+// The Assault variant of the reload ability. Unlike other hero's reload abilities
+// (i.e. Sniper and Heavy), the Shotgun is reloaded one single shell at a time.
+// Each individual shell is its own channelled ability. Casting the ability will
+// attempt to reload the Shotgun to full capacity, one shell at a time. Moving 
+// anytime will cancel the the reload if it has not reached full capacity yet.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/assault/shotgun.lua
+//
+// TODO:
+//
+
+"DOTAAbilities"
+{
+    "assault_reload"
+    {
+        // To be implemented
+
+    }
+}

@@ -1,5 +1,5 @@
 // Description:
-// Reload Sniper's weapon. Skill channels for 7 seconds. When completed, sets ammo (mana) to max.
+// Reload Sniper's weapon. Skill channels for 4 seconds. When completed, sets ammo (mana) to max.
 // Requires 1 magazine (item) to cast. When successful, consumes the magazine. Reload is automatically
 // skilled when snipe is skilled.
 //

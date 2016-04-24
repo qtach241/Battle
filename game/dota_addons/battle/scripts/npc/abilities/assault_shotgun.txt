@@ -1,6 +1,12 @@
 // Description:
 // Assault's 1st ability. Does massive damage in a cone. Very limited range.
-// Picture if Beast Master's roar did damage instead of stunning.
+// Visually, it is Beast Master's Roar, except dealing damage instead of stun.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/assault/shotgun.lua
+//
+// TODO:
+// 
 
 "DOTAAbilities"
 {

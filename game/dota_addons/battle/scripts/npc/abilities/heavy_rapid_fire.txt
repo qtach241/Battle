@@ -1,6 +1,12 @@
 // Description:
-// Heavy's ultimate. Should work kind of like Sven ult. Activate to apply a buff
-// for a time. Details TBD.
+// Heavy's ultimate. Applies the "Rapid Fire" buff to the hero. For a time,
+// the Heavy's Machine Gun skill has its cooldown reduced to 0.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/heavy/rapid_fire.lua
+//
+// TODO:
+//
 
 "DOTAAbilities"
 {

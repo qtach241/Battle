@@ -1,9 +1,14 @@
 // Description:
-// Assault's ultimate. Brandish a shield in a 180 arc in the current direction.
-// Blocks all projectiles that the shield makes contact with. Drains mana at a
-// constant rate while deployed, and drains even more when projectile hits shield.
-// Some asset work and lua scripting will probably need to be done in addition
-// to the data driven key values.
+// Assault's ultimate. A channelling ability that when activated, brandishes 
+// a riot shield in front of the hero's current facing direction. The shield
+// blocks all projectiles that it makes contact with. The channelling duration
+// is not very long and emphasizes precision in choosing when to cast it.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/assault/riot_shield.lua
+//
+// TODO:
+//
 
 "DOTAAbilities"
 {
