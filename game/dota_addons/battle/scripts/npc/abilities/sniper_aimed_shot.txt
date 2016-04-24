@@ -1,5 +1,12 @@
 // Description:
 // Sniper's ultimate. Channels for a short time and releases a shot that does massive damage.
+// This is a targeted ability and is very much like Sniper's Assassinate.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/sniper/aimed_shot.lua
+//
+// TODO:
+//
 
 "DOTAAbilities"
 {

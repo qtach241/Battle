@@ -1,6 +1,12 @@
 // Description:
 // Sniper's 1st ability. Main damaging ability. Longest range of all weapon abilities. High damage and stun.
 // Damage and stun duration scales with distance similar to Mirana arrow.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/sniper/snipe.lua
+//
+// TODO:
+// - csgo scout sound effects
 
 "DOTAAbilities"
 {

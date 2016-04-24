@@ -1,5 +1,13 @@
 // Description:
-// Sniper's 2nd ability. Throws an acid grenade, dealing damge over time and slowing in an AoE.
+// Sniper's 2nd ability. Throws an acid bomb, dealing damge over time and slowing in an AoE.
+// Visual effect of the acid bomb projectile resemble Alchemist Unstable Concoction, while the Visual
+// effect of the AoE effect resemble Alchemist Acid Spray.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/sniper/acid_bomb.lua
+//
+// TODO:
+// 
 
 "DOTAAbilities"
 {

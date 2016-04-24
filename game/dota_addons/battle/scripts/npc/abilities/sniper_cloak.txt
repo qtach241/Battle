@@ -1,5 +1,14 @@
 // Description:
 // Sniper's 3rd ability. Sniper cloaks himself turning invisible for a time, but moves slower.
+// Using Sniper's first skill snipe before the duration is up grant bonus damage to the bullet
+// and end the cloak buff immediately. This skill is very much like the item Shadow Blade, with
+// a movement speed decrease instead of a bonus.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/sniper/cloak.lua
+//
+// TODO:
+//
 
 "DOTAAbilities"
 {
