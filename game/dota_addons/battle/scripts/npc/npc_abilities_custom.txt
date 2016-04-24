@@ -20,6 +20,7 @@
 #base "abilities/sniper_acid_bomb.txt"
 #base "abilities/sniper_cloak.txt"
 #base "abilities/sniper_aimed_shot.txt"
+#base "abilities/sniper_reload.txt"
 
 // Not Implemented Yet:
 //#base "abilities/heavy_machine_gun.txt"

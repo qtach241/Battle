@@ -9,12 +9,12 @@
 
         // Abilities
         // ----------------------------------------------------------------
-        "AbilityLayout"                "4"
+        "AbilityLayout"                "5"
         "Ability1"                     "sniper_snipe"
         "Ability2"                     ""
         "Ability3"                     ""
         "Ability4"                     ""
-        "Ability5"                     ""
+        "Ability5"                     "sniper_reload"
         "Ability6"                     ""
         "Ability7"                     ""
         "Ability8"                     ""

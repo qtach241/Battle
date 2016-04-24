@@ -1,0 +1,121 @@
+// Description:
+// Reload Sniper's weapon. Skill channels for 7 seconds. When completed, sets ammo (mana) to max.
+// Requires 1 magazine (item) to cast. When successful, consumes the magazine. Reload is automatically
+// skilled when snipe is skilled.
+//
+// Associated LUA Files:
+// scripts/vscripts/heroes/sniper/snipe.lua
+//
+// TODO:
+// - Replace tinker assets with scout/awp
+// - Implement magazines
+
+"DOTAAbilities"
+{
+    "sniper_reload"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                              "ability_datadriven"
+        "AbilityBehavior"                        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | 
+                                                  DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE |
+                                                  DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityTextureName"                     "tinker_rearm"
+        //"AbilityCastAnimation"                   "ACT_DOTA_CHANNEL_ABILITY_1"
+
+        "MaxLevel"                               "1"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"                       "0.0"
+        "AbilityChannelTime"                     "4.0"
+
+        // Time		
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                        "0.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                        "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                       "FIELD_INTEGER"
+                "channel_tooltip"                "4"
+            }
+        }
+
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"        "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+            "particle"         "particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
+        }
+
+        "OnAbilityPhaseStart"
+        {
+            "FireSound"
+            {
+                "Target"                "CASTER"
+                "EffectName"            "Hero_Tinker.RearmStart"	
+            }
+        }
+
+        "OnSpellStart"
+        {
+            "FireSound"
+            {
+                "Target"                "CASTER"
+                "EffectName"            "Hero_Tinker.Rearm"
+            }
+            "ApplyModifier"
+            {
+                "Target"                "CASTER"
+                "ModifierName"          "modifier_reload"
+            }
+        }
+
+        "OnChannelInterrupted"
+        {
+            "RemoveModifier"
+            {
+                "Target"                "CASTER"
+                "ModifierName"          "modifier_reload"
+            }
+        }
+
+        "OnChannelSucceeded"
+        {
+            "FireSound"
+            {
+                "Target"                "CASTER"
+                "EffectName"            "Hero_Tinker.Rearm"
+            }
+            "RunScript"
+            {
+                "ScriptFile"            "heroes/sniper/snipe.lua"
+                "Function"              "Reload"
+                "abilitystring"         "sniper_reload"
+            }
+        }
+
+        "Modifiers"
+        {
+            "modifier_reload"
+            {
+                "IsHidden"              "0"
+                "Duration"              "%channel_tooltip"
+
+                "EffectName"            "particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
+                "EffectAttachType"      "follow_origin"
+
+                "OverrideAnimation"     "ACT_DOTA_TINKER_REARM3"
+            }
+        }
+    }
+}

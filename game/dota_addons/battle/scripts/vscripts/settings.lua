@@ -9,8 +9,8 @@ PRE_GAME_TIME = 5.0                      --[[ How long after people select their
 POST_GAME_TIME = 60.0                    --[[ How long should players look at the scoreboard before closing the server automatically? ]]
 TREE_REGROW_TIME = 60.0                  --[[ How long should it take individual trees to respawn after being cut down/destroyed? ]]
 
-GOLD_PER_TICK = 100                      --[[ How much gold should players get per tick? ]]
-GOLD_TICK_TIME = 5                       --[[ How many seconds between gold ticks? ]]
+GOLD_PER_TICK = 1                        --[[ How much gold should players get per tick? ]]
+GOLD_TICK_TIME = 1                       --[[ How many seconds between gold ticks? ]]
 
 RECOMMENDED_BUILDS_DISABLED = false      --[[ Disable the recommened builds for heroes? ]]
 CAMERA_DISTANCE_OVERRIDE = -1            --[[ How far out is camera allowed to go?  Use -1 for the default (1134) while still allowing for panorama camera distance changes. ]]
@@ -33,7 +33,7 @@ USE_STANDARD_HERO_GOLD_BOUNTY = true     --[[ Give gold for hero kills the same 
 
 USE_CUSTOM_TOP_BAR_VALUES = true         --[[ Use customized top bar values or use the default kill count per team? ]]
 TOP_BAR_VISIBLE = true                   --[[ Display the top bar score/count at all? ]]
-SHOW_KILLS_ON_TOPBAR = true              --[[ Display kills only on the top bar? (No denies, suicides, kills by neutrals)  Requires USE_CUSTOM_TOP_BAR_VALUES ]]
+SHOW_KILLS_ON_TOPBAR = false             --[[ Display kills only on the top bar? (No denies, suicides, kills by neutrals)  Requires USE_CUSTOM_TOP_BAR_VALUES ]]
 
 ENABLE_TOWER_BACKDOOR_PROTECTION = false --[[ Enable backdoor protection for towers? ]]
 REMOVE_ILLUSIONS_ON_DEATH = false        --[[ Remove all illusions if the main hero dies? ]]

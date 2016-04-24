@@ -25,14 +25,6 @@
         "AnimationPlaybackRate"                  "1"
         "AnimationIgnoresModelScale"             "1"
 
-        // Precache
-        //-------------------------------------------------------------------------------------------------------------
-        "precache"
-        {
-            "soundfile"		    "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-            "particle"		    "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-        }
-        
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"                       "0.0"
@@ -52,6 +44,14 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"                        "1 1 1 1"
         
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"        "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+            "particle"         "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+        }
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -107,7 +107,17 @@
                 "vision_duration"           "3.0"
             }
         }
-        
+
+        "OnUpgrade"
+        {
+            "RunScript"
+            {
+                "ScriptFile"            "heroes/sniper/snipe.lua"
+                "Function"              "OnUpgrade"
+                "sub_ability"           "sniper_reload"
+            }
+        }
+
         "OnSpellStart"
         {
             "FireSound"

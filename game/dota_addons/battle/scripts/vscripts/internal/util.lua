@@ -104,3 +104,7 @@ COLOR_PURPLE = '\x1A'
 COLOR_ORANGE = '\x1B'
 COLOR_LRED = '\x1C'
 COLOR_GOLD = '\x1D'
+
+function Test(event)
+    print("[TRIGGERED]")
+end
