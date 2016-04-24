@@ -1,5 +1,5 @@
 // Description:
-// Trooper's 3rd ability. Increases movement speed for a shor time.
+// Trooper's 3rd ability. Increases movement speed for a short time.
 // Visually and mechanically similar to Dark Seer's Surge.
 //
 // Associated LUA Files:

@@ -1,7 +1,7 @@
 // Description:
 // Heavy's 3rd ability. Fires a hook, latching onto friendly allies and some objects.
 // Pulls the heavy towards that unit. Visually similar to Timbersaw's Timber Chain 
-// with the added effect of working on Heroes instead of only trees.
+// with the added effect of working on heroes instead of only trees.
 //
 // Associated LUA Files:
 // scripts/vscripts/heroes/heavy/grapple.lua
