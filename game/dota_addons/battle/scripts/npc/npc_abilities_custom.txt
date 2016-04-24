@@ -27,15 +27,18 @@
 //#base "abilities/heavy_frag_grenade.txt"
 //#base "abilities/heavy_grapple.txt"
 //#base "abilities/heavy_rapid_fire.txt"
+//#base "abilities/heavy_reload.txt"
 
 //#base "abilities/assault_shotgun.txt"
 //#base "abilities/assault_flashbang.txt"
 //#base "abilities/assault_power_slide.txt"
 //#base "abilities/assault_riot_shield.txt"
+//#base "abilities/assault_reload.txt"
 
 //#base "abilities/trooper_rifle_shot.txt"
 //#base "abilities/trooper_smoke_grenade.txt"
 //#base "abilities/trooper_sprint.txt"
 //#base "abilities/trooper_first_aid.txt"
+//#base "abilities/trooper_reload.txt"
 
 "DOTAAbilities" {}
