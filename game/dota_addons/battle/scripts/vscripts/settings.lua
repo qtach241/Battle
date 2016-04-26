@@ -9,11 +9,11 @@ PRE_GAME_TIME = 5.0                      --[[ How long after people select their
 POST_GAME_TIME = 60.0                    --[[ How long should players look at the scoreboard before closing the server automatically? ]]
 TREE_REGROW_TIME = 60.0                  --[[ How long should it take individual trees to respawn after being cut down/destroyed? ]]
 
-GOLD_PER_TICK = 1                        --[[ How much gold should players get per tick? ]]
+GOLD_PER_TICK = 0                        --[[ How much gold should players get per tick? ]]
 GOLD_TICK_TIME = 1                       --[[ How many seconds between gold ticks? ]]
 
 RECOMMENDED_BUILDS_DISABLED = false      --[[ Disable the recommened builds for heroes? ]]
-CAMERA_DISTANCE_OVERRIDE = -1            --[[ How far out is camera allowed to go?  Use -1 for the default (1134) while still allowing for panorama camera distance changes. ]]
+CAMERA_DISTANCE_OVERRIDE = 1800          --[[ How far out is camera allowed to go?  Use -1 for the default (1134) while still allowing for panorama camera distance changes. ]]
 
 MINIMAP_ICON_SIZE = 1                    --[[ Minimap icon size for heroes? ]]
 MINIMAP_CREEP_ICON_SIZE = 1              --[[ Minimap icon size for creeps? ]]
