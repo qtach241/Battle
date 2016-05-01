@@ -9,9 +9,16 @@
 
 local clog = { _version = "0.1.0" }
 
+local time_start = string.format("%s_%s", GetSystemDate(), GetSystemTime())
+
+if(time_start:match("%W")) then
+  time_start = time_start:gsub("%W","-")
+end
+
 clog.usecolor = true
-clog.outfile = "../dota_addons/battle/logs/events.htm"
 clog.level = "trace"
+clog.outpath = "../dota_addons/battle/logs/"
+clog.outfile = string.format("%sevents_%s.htm", clog.outpath, time_start)
 
 local modes = {
   { name = "trace", color = "\27[34m", },
@@ -30,7 +37,7 @@ local log_header = [[<html><head>
                      <tr><th>Date and Time</th>
                      <th>Level</th>
                      <th>Class</th>
-                     <th>Line</th>
+                     <th>Source</th>
                      <th>Information</th></tr>]]
 
 InitLogFile(clog.outfile, log_header)
@@ -74,7 +81,7 @@ for i, x in ipairs(modes) do
 
     local msg = tostring(string)
     local info = debug.getinfo(2, "Sl")
-    local lineinfo = info.short_src .. ":" .. info.currentline
+    local lineinfo = "@" .. info.short_src .. "::" .. info.currentline
 
     -- Output to flight recorder
     if clog.outfile then
