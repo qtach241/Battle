@@ -18,11 +18,14 @@
 # Map files
 *.vpk
 
+# Log files
+game/dota_addons/battle/logs/
+
 # Map overviews
 content/dota_addons/battle/materials/overviews/*.vmat
 content/dota_addons/battle/materials/overviews/*.txt
 game/dota_addons/battle/resource/overviews/*
 
-#Github dump
+# Github dump
 *.stackdump
 
