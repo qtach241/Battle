@@ -2,6 +2,7 @@
 
 BATTLE_VERSION = "1.00"
 
+--[[ Setup utils for debugging ]]
 DEBUG_MODE = true
 DEBUG_VERBOSE = true
 
@@ -40,7 +41,7 @@ This function should generally only be used if the Precache() function in
 addon_game_mode.lua is not working.
 ]]
 function Battle:PostLoadPrecache()
-  DebugPrint('Post Load Pre-cache Success!')
+  clog.info("BATTLE", "Executing post-load pre-cache")
 end
 
 --[[
@@ -50,7 +51,7 @@ a state that isn't initializeable in InitGameMode() but needs to be done before
 everyone loads in. 
 ]]
 function Battle:OnFirstPlayerLoaded()
-  DebugPrint('First Player has loaded')
+  clog.info("BATTLE", "First Player has loaded")
 end
 
 --[[
@@ -59,7 +60,7 @@ the game, right as the hero selection time begins. It can be used to initialize
 non-hero player state or adjust the hero selection (i.e. force random, etc).
 ]]
 function Battle:OnAllPlayersLoaded()
-  DebugPrint('All Players have loaded into the game')
+  clog.info("BATTLE", "All players have loaded into the game")
 end
 
 --[[
@@ -72,7 +73,7 @@ adding physics, etc.
 The hero parameter is the hero entity that just spawned in.
 ]]
 function Battle:OnHeroInGame(hero)
-  DebugPrint('Hero spawned in game for the first time: ' .. hero:GetUnitName())
+  clog.info("BATTLE", "Hero spawned in game for the first time: " .. hero:GetUnitName())
 end
 
 --[[
@@ -82,7 +83,7 @@ configured, creeps will spawn, towers will become damageable, etc. This function
 is used for starting game timers/thinkers, starting the first round, etc.
 ]]
 function Battle:OnGameInProgress()
-  DebugPrint('The game has officially begun')
+  clog.info("BATTLE", "The game has officially begun")
 end
 
 --[[
@@ -94,6 +95,10 @@ Use this function to initialize any other values/tables that will be needed
 or to register custom console commands.
 ]]
 function Battle:InitGameMode()
-  DebugPrint('Done loading Battle game mode!')
+  clog.info("BATTLE", "Finished loading Battle game mode")
 end
 
+function Battle:OnNextWave(keys)
+  local playerID = keys.PlayerID
+  local data = GetPlayerData(playerID)
+end

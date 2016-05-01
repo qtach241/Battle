@@ -2,7 +2,7 @@
 
 print('\n***Begin Loading LUA Script***\n')
 
-require('internal/util')
+require('util/util')
 require('battle')
 
 --[[
