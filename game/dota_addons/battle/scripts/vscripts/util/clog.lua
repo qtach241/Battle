@@ -10,9 +10,8 @@
 local clog = { _version = "0.1.0" }
 
 clog.usecolor = true
-clog.outfile = "logfile.txt"
+clog.outfile = "../dota_addons/battle/logs/events.htm"
 clog.level = "trace"
-
 
 local modes = {
   { name = "trace", color = "\27[34m", },
@@ -23,6 +22,18 @@ local modes = {
   { name = "fatal", color = "\27[35m", },
 }
 
+local log_header = [[<html><head>
+                     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+                     <meta http-equiv="Pragma" content="no-cache">
+                     <meta http-equiv="Expires" content="-1"></head>
+                     <body><br>/events.htm<br><br><table border="1"><tbody>
+                     <tr><th>Date and Time</th>
+                     <th>Level</th>
+                     <th>Class</th>
+                     <th>Line</th>
+                     <th>Information</th></tr>]]
+
+InitLogFile(clog.outfile, log_header)
 
 local levels = {}
 for i, v in ipairs(modes) do
@@ -54,37 +65,31 @@ end
 
 for i, x in ipairs(modes) do
   local nameupper = x.name:upper()
-  clog[x.name] = function(...)
+  clog[x.name] = function(class, string)
     
     -- Return early if we're below the clog level
     if i < levels[clog.level] then
       return
     end
 
-    local msg = tostring(...)
+    local msg = tostring(string)
     local info = debug.getinfo(2, "Sl")
     local lineinfo = info.short_src .. ":" .. info.currentline
 
-    -- Output to console
-    print(string.format("%s[%-6s%s]%s %s: %s",
-                        clog.usecolor and x.color or "",
-                        nameupper,
-                        os.date("%H:%M:%S"),
-                        clog.usecolor and "\27[0m" or "",
-                        lineinfo,
-                        msg))
-
-    -- Output to clog file
+    -- Output to flight recorder
     if clog.outfile then
-      local fp = io.open(clog.outfile, "a")
-      local str = string.format("[%-6s%s] %s: %s\n",
-                                nameupper, os.date(), lineinfo, msg)
-      fp:write(str)
-      fp:close()
-    end
+      local str = string.format("<tr><td>%s %s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>\n",
+                                GetSystemDate(),
+                                GetSystemTime(),
+                                nameupper,
+                                class,
+                                lineinfo,
+                                msg)
 
+      AppendToLogFile(clog.outfile, str)
+                                  
+    end
   end
 end
-
 
 return clog
