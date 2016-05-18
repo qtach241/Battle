@@ -21,12 +21,12 @@ clog.outpath = "../dota_addons/battle/logs/"
 clog.outfile = string.format("%sevents_%s.htm", clog.outpath, time_start)
 
 local modes = {
-  { name = "trace", color = "\27[34m", },
-  { name = "debug", color = "\27[36m", },
-  { name = "info",  color = "\27[32m", },
-  { name = "warn",  color = "\27[33m", },
-  { name = "error", color = "\27[31m", },
-  { name = "fatal", color = "\27[35m", },
+  { name = "trace",   color = "\27[34m", },
+  { name = "debug",   color = "\27[36m", },
+  { name = "info",    color = "\27[32m", },
+  { name = "warning", color = "\27[33m", },
+  { name = "error",   color = "\27[31m", },
+  { name = "fatal",   color = "\27[35m", },
 }
 
 local log_header = [[<html><head>
@@ -72,7 +72,7 @@ end
 
 for i, x in ipairs(modes) do
   local nameupper = x.name:upper()
-  clog[x.name] = function(class, string)
+  clog[x.name] = function(string, class)
     
     -- Return early if we're below the clog level
     if i < levels[clog.level] then
@@ -82,6 +82,7 @@ for i, x in ipairs(modes) do
     local msg = tostring(string)
     local info = debug.getinfo(2, "Sl")
     local lineinfo = "@" .. info.short_src .. "::" .. info.currentline
+    local classinfo = class or "MESSAGE"
 
     -- Output to flight recorder
     if clog.outfile then
@@ -89,7 +90,7 @@ for i, x in ipairs(modes) do
                                 GetSystemDate(),
                                 GetSystemTime(),
                                 nameupper,
-                                class,
+                                classinfo,
                                 lineinfo,
                                 msg)
 

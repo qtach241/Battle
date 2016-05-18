@@ -11,16 +11,27 @@ if Battle == nil then
   _G.Battle = class({})
 end
 
---[[ Load Libraries ]]
-require('libraries/timers')
+local requires = {
+  -- utils
+  "util/util",
+  "util/class",
 
---[[ Load Internals ]]
-require('internal/battle')
-require('internal/events')
+  -- libaries
+  "libraries/timers",
 
---[[ Load Settings and Event Handlers ]]
-require('settings')
-require('events')
+  -- internal
+  "internal/battle",
+  "internal/events",
+
+  -- core game logic
+  "settings",
+  "events",
+  "wavedata",
+}
+
+for _, r in pairs(requires) do
+  require(r)
+end
 
 --[[
 This function should be used to set up Async precache calls at the beginning of 
@@ -41,7 +52,7 @@ This function should generally only be used if the Precache() function in
 addon_game_mode.lua is not working.
 ]]
 function Battle:PostLoadPrecache()
-  clog.info("BATTLE", "Executing post-load pre-cache")
+  clog.info("Executing post-load pre-cache", "BATTLE")
 end
 
 --[[
@@ -51,7 +62,7 @@ a state that isn't initializeable in InitGameMode() but needs to be done before
 everyone loads in. 
 ]]
 function Battle:OnFirstPlayerLoaded()
-  clog.info("BATTLE", "First Player has loaded")
+  clog.info("First Player has loaded", "BATTLE")
 end
 
 --[[
@@ -60,7 +71,7 @@ the game, right as the hero selection time begins. It can be used to initialize
 non-hero player state or adjust the hero selection (i.e. force random, etc).
 ]]
 function Battle:OnAllPlayersLoaded()
-  clog.info("BATTLE", "All players have loaded into the game")
+  clog.info("All players have loaded into the game", "BATTLE")
 end
 
 --[[
@@ -73,7 +84,7 @@ adding physics, etc.
 The hero parameter is the hero entity that just spawned in.
 ]]
 function Battle:OnHeroInGame(hero)
-  clog.info("BATTLE", "Hero spawned in game for the first time: " .. hero:GetUnitName())
+  clog.info("Hero spawned in game for the first time: " .. hero:GetUnitName(), "BATTLE")
 end
 
 --[[
@@ -83,7 +94,7 @@ configured, creeps will spawn, towers will become damageable, etc. This function
 is used for starting game timers/thinkers, starting the first round, etc.
 ]]
 function Battle:OnGameInProgress()
-  clog.info("BATTLE", "The game has officially begun")
+  clog.info("The game has officially begun", "BATTLE")
 end
 
 --[[
@@ -95,7 +106,19 @@ Use this function to initialize any other values/tables that will be needed
 or to register custom console commands.
 ]]
 function Battle:InitGameMode()
-  clog.info("BATTLE", "Finished loading Battle game mode")
+  Battle = self
+  clog.info("Finished loading Battle game mode", "BATTLE")
+
+  -- Testing
+  Convars:RegisterCommand("test_spawn", Dynamic_Wrap(Battle, "TestSpawn"),
+    "Console command to test spawning of enemies", FCVAR_CHEAT)
+end
+
+function Battle:TestSpawn()
+  clog.info("Test Spawning")
+  DebugPrint("Test Spawning Yo!")
+
+  --SpawnEntity("undying", 0, (-1486.377686, -2659.138184, 1686.845825))
 end
 
 function Battle:OnNextWave(keys)

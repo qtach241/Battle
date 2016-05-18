@@ -66,7 +66,7 @@ end
 --[[
 An entitiy died.
 ]]
-function Battle:_OnEntityKilled( keys )
+function Battle:_OnEntityKilled(keys)
   if Battle._reentrantCheck then
     return
   end

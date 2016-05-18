@@ -119,6 +119,8 @@ function Battle:_InitGameMode()
   ListenToGameEvent('npc_spawned', Dynamic_Wrap(Battle, '_OnNPCSpawned'), self)
   ListenToGameEvent('entity_killed', Dynamic_Wrap(Battle, '_OnEntityKilled'), self)
   ListenToGameEvent('player_connect_full', Dynamic_Wrap(Battle, '_OnConnectFull'), self)
+
+  CustomGameEventManager:RegisterListener( "next_wave", Dynamic_Wrap(Battle, "OnNextWave"))
   
   DebugPrint('Event Hooks set!')
   
