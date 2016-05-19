@@ -5,6 +5,8 @@
         "BaseClass"        "npc_dota_creature"
         "Model"            "models/heroes/undying/undying_flesh_golem.vmdl"
         "ModelScale"       "0.85"
-        "Ability1"         "undying_cosmetics"
+
+        "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"           "200"
     }
 }

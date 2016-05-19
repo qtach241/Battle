@@ -9,6 +9,7 @@ Reserved function invoked by Dota 2 engine. The Precache function will load all
 required assets in advance of them being required by the game.
 ]]
 function Precache(context)
+  PrecacheUnitByNameSync("undying", context)
   print('\nPrecache Success!\n')
 end
 

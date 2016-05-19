@@ -114,11 +114,28 @@ function Battle:InitGameMode()
     "Console command to test spawning of enemies", FCVAR_CHEAT)
 end
 
+--[[
+General purpose test command used to trigger spawns.
+]]
 function Battle:TestSpawn()
   clog.info("Test Spawning")
   DebugPrint("Test Spawning Yo!")
 
-  --SpawnEntity("undying", 0, (-1486.377686, -2659.138184, 1686.845825))
+  local point = Entities:FindByName(nil, "test_spawn_entity"):GetAbsOrigin()
+  local waypoint = Entities:FindByName(nil, "test_spawn_waypoint"):GetAbsOrigin()
+  local units_to_spawn = 10
+
+  for i=1,units_to_spawn do
+    Timers:CreateTimer({endTime = 1, callback = function()
+      local unit = CreateUnitByName("undying", point+RandomVector(RandomInt(100,200)), true, nil, nil, DOTA_TEAM_NEUTRALS)
+      local newOrder = { UnitIndex = unit:GetEntityIndex(),
+                         OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+                         Position = waypoint,
+                         Queue = true }
+      clog.info("Move " .. unit:GetEntityIndex() .. " to " .. tostring(waypoint))
+      ExecuteOrderFromTable(newOrder)
+    end})
+  end
 end
 
 function Battle:OnNextWave(keys)
