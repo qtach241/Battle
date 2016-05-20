@@ -91,6 +91,66 @@ function PrintTable(t, indent, done)
   end
 end
 
+function TableLength(T)
+  local count = 0
+
+  for _ in pairs(T) do
+    count = count + 1
+  end
+  return count
+end
+
+function TableConcat(T, c)
+  local s = ""
+
+  for _, v in pairs(T) do
+    if s ~= "" then
+      s = s..c..v
+    else
+      s = v
+    end
+  end
+  return s
+end
+
+function TableContains(list, element)
+  if list == nil then
+    return false
+  end
+
+  for i=1,#list do
+    if list[i] == element then
+      return true
+    end
+  end
+  return false
+end
+
+--[[
+Randomly orders a table with numeric indices
+]]
+function TableShuffle(array)
+  math.randomseed(Time())
+  local length, new, old = #array, {}, {}
+
+  for k, v in pairs(array) do
+    table.insert(old, v)
+  end
+
+  for i = 1, length, 1 do
+    local newLength = #old
+    local ind = math.random(newLength)
+    local obj = old[ind]
+    table.remove(old, ind)
+    table.insert(new, obj)
+  end
+  return new
+end
+
+function VectorToString(v)
+  return "["..v.x..", "..v.y..", "..v.z.."]"
+end
+
 COLOR_NONE = '\x06'
 COLOR_GRAY = '\x06'
 COLOR_GREY = '\x06'
@@ -108,7 +168,3 @@ COLOR_PURPLE = '\x1A'
 COLOR_ORANGE = '\x1B'
 COLOR_LRED = '\x1C'
 COLOR_GOLD = '\x1D'
-
-function Test(event)
-    print("[TRIGGERED]")
-end
