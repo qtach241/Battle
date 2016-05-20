@@ -1,9 +1,8 @@
 --[[ Utils for Debugging ]]
 
-require('util/base64')
-
-JSON = require('util/json')
 clog = require('util/clog')
+JSON = require('util/json')
+require('util/base64')
 
 function DebugPrint(...)
   local spew = Convars:GetInt('debug_mode') or -1
